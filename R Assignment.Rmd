@@ -1,6 +1,11 @@
 ```{r}
 library(tidyverse)
 ```
+```{r}
+data
+```
+
+
 
 ```{r}
 ggplot(data) + 
@@ -17,7 +22,7 @@ ggplot(data) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 ```
 ```{r}
-ggplot(data) + 
+ggplot2::ggplot(data) + 
   geom_bar(aes(x = Area, y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
   facet_wrap(~ SpeciesGroup, scales = "free_y") +
