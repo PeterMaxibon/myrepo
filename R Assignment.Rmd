@@ -1,40 +1,23 @@
 ```{r}
 library(tidyverse)
 ```
-```{r}
-data_ass2
-
-data <- data_ass2 %>% 
-  drop_na()
-
-data
-```
-
-
 
 ```{r}
-ggplot(data = data) + 
+ggplot(data) + 
   geom_point(aes(x = Area , y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity")
-
-
 ```
 ```{r}
-ggplot(data = data) + 
+ggplot(data) + 
   geom_line(aes(x = Area, y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 ```
-
-
-
-
 ```{r}
-ggplot(data = data) + 
+ggplot(data) + 
   geom_bar(aes(x = Area, y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 ```
-
 ```{r}
-ggplot(data = data) + 
+ggplot(data) + 
   geom_bar(aes(x = Area, y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
   facet_wrap(~ SpeciesGroup, scales = "free_y") +
@@ -46,14 +29,3 @@ ggplot(data = data) +
   theme_minimal()
   
 ```
-
-
-```{r}
-library(ggplot2)
-ggplot(data = data) + 
-  geom_bar(aes(x = Area, y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
-
-```
-
-
