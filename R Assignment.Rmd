@@ -18,7 +18,11 @@ ggplot(data = data) +
 
 
 ```
-
+```{r}
+ggplot(data = data) + 
+  geom_line(aes(x = Area, y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+```
 
 
 
@@ -44,14 +48,6 @@ ggplot(data = data) +
 ```
 
 
-
-```{r}
-ggplot(data = data) + 
-  geom_line(aes(x = Area, y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
-``````{r}
-install.packages("ggplot")
-```
 ```{r}
 library(ggplot2)
 ggplot(data = data) + 
