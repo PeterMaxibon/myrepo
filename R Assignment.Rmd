@@ -3,38 +3,37 @@ title: "MB5370 Module 04. Workshop 1 - Introduction"
 author: "Prabhanjan Ambhorkar"
 date: "2024-03-22"
 output:
+  html_document: default
 ---
-
+R setup chunk
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
 ```{r}
-library(tidyverse)
+library(tidyverse) ## Downloading tidyverse package
+
+library(readr)
+data_ass2 <- read_csv("D:/data_ass2.csv") ## downloading the data to work with
+View(data_ass2)
+
 library(dplyr)
 
 data_ass2
-data <- data_ass2 %>% drop_na()
+data <- data_ass2 %>% drop_na() ## Tidying the data by dropping the NA values
 
 print(data)
 ```
-
-
-
+Wrangling with the data 
 ```{r}
 ggplot(data) + 
-  geom_bar(aes(x = Area , y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity")
+  geom_bar(aes(x = Area , y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") ## Bar graph to look if it looks informative
 ```
-
-
-
-
-
 ```{r}
 ggplot(data) + 
   geom_line(aes(x = Area, y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) ## Line Graph to see if this looks informative 
 ```
 
 
@@ -43,7 +42,7 @@ ggplot(data) +
 ```{r}
 ggplot(data) + 
   geom_bar(aes(x = Area, y = `NumberCaught Total`, fill = SpeciesGroup, colour = SpeciesGroup), stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) ## Arranging the text so it looks neat and tidy
 ```
 ```{r}
 ggplot2::ggplot(data) + 
@@ -54,7 +53,5 @@ ggplot2::ggplot(data) +
        x = "Area",
        y = "NumberCaughtTotal",
        fill = "SpeciesGroup") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
-  theme_minimal()
-  
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) ## Finding the best fit so the data looks the most tidy and informative
 ```
